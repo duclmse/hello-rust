@@ -1,0 +1,39 @@
+[workspace]
+members = [
+    "linux-fs",
+    "windows-fs",
+    "lnk"
+]
+
+[package]
+name = "hello-rust"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
+
+[dependencies]
+lnk = {path = "./lnk"}
+
+actix = "*"
+actix-files = "0.6"
+actix-web = { version = "4", features = ["openssl"] }
+actix-web-actors = "4.1"
+actix-service = "2.0.2"
+actix-server = "*"
+actix-http ="*"
+
+log = "0.4"
+env_logger = "0.9"
+rand = "0.8"
+serde = "1"
+serde_json = "1"
+
+postgres = "0.19.4"
+tokio-postgres = "0.7.7"
+tokio = { version = "1", features = ["full"] }
+openssl = "0.10.42"
