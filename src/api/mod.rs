@@ -21,6 +21,7 @@ pub async fn serve(addr: &str) -> Result<()> {
     App::new()
       .app_data(app_name.clone())
       .app_data(counter.clone())
+      .service(http::route())
       .service(http::fs::route())
       .service(http::test::route())
       .route("/ws", web::get().to(websocket::index))
