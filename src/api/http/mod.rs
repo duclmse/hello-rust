@@ -9,7 +9,7 @@ pub(crate) mod fs;
 pub(crate) mod model;
 pub(crate) mod test;
 
-#[get("/")]
+#[get("")]
 async fn index(data: Data<model::AppState>, app_counter: Data<model::AppStateWithCounter>) -> String {
   let mut counter = app_counter.counter.lock().unwrap();
   *counter += 1;
